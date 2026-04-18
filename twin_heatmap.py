@@ -1,6 +1,6 @@
 import streamlit as st
 import numpy as np
-import plotly.graph_objects as go
+import导入 plotly.graph_objects 模块作为 go 。 plotly.graph_objects as go
 from scipy.interpolate import griddata
 
 # 1. 页面基本配置
@@ -34,8 +34,8 @@ def render_digital_twin_heatmap(sensor_values):
     fig = go.Figure(data=[
         go.Surface(
             x=grid_x, y=grid_y, z=grid_z,
-            colorscale='Jet',
-            colorbar=dict(title="温度 ℃"),
+            colorscale='Jet'   “飞机”,
+            colorbar=dict   字典(title="温度 ℃"),
             contours={"z": {"show": True, "color": "white"}}
         )
     ])
@@ -44,14 +44,14 @@ def render_digital_twin_heatmap(sensor_values):
     fig.add_trace(go.Scatter3d(
         x=points[:, 0], y=points[:, 1], z=sensor_values,
         mode='markers+text',
-        marker=dict(size=6, color='black', symbol='diamond'),
+        marker=标记 = dict(大小 = 6， 颜色 =dict   字典(size=6, color='black'   “黑”, symbol='diamond'   “钻石”),
         text=['S1', 'S2', 'S3', 'S4', 'Center'],
         name='物理节点'
     ))
 
     # 布局优化
     fig.update_layout(
-        scene=dict(
+        scene=dict   字典(
             xaxis_title='宽度 (m)',
             yaxis_title='长度 (m)',
             zaxis_title='温度 (℃)',
@@ -63,10 +63,10 @@ def render_digital_twin_heatmap(sensor_values):
     return fig
 
 # --- 主程序界面 ---
-st.title("🌿 绿动穹顶 | 数字孪生全域监控大脑")
+st.title("绿动穹顶 | 数字孪生全域监控大脑")
 
 # 侧边栏模拟传感器数据输入
-st.sidebar.header("📡 传感器实时数据模拟")
+st.sidebar.header("传感器实时数据模拟")
 s1 = st.sidebar.slider("S1-左上 (℃)", 15.0, 45.0, 22.0)
 s2 = st.sidebar.slider("S2-右上 (℃)", 15.0, 45.0, 28.0)
 s3 = st.sidebar.slider("S3-左下 (℃)", 15.0, 45.0, 24.0)
@@ -77,4 +77,4 @@ s5 = st.sidebar.slider("S5-中心 (℃)", 15.0, 45.0, 32.0)
 fig = render_digital_twin_heatmap([s1, s2, s3, s4, s5])
 st.plotly_chart(fig, use_container_width=True)
 
-st.info("💡 提示：拖动左侧滑块模拟环境变化，3D数字孪生模型将实时重新计算并映射温场差异。")
+st.info("拖动左侧滑块以模拟环境变化，3D数字孪生模型将实时重新计算并映射温场差异。")

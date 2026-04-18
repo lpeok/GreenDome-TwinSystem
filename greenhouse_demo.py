@@ -3,7 +3,7 @@ import pandas as pd
 import time
 
 # --- 页面配置 ---
-st.set_page_config(page_title="绿动穹顶 - 智慧温室数字孪生系统", layout="wide", page_icon="🌿")
+st.set_page_config(page_title="绿动穹顶 - 智慧温室数字孪生系统", layout="wide", page_icon="")
 
 # --- 页面标题 ---
 st.title("“绿动穹顶”智慧温室 - 核心决策演示平台")
